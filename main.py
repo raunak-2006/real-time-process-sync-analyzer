@@ -1,4 +1,7 @@
 # main.py
+# Project: Real-Time Process Synchronization Analyzer
+# Purpose: Demonstrates race condition, synchronization, and deadlock
+
 import threading
 import time
 
@@ -141,3 +144,4 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
+
