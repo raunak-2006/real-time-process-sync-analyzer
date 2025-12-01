@@ -1,22 +1,18 @@
-# main.py
 # Project: Real-Time Process Synchronization Analyzer
 # Purpose: Demonstrates race condition, synchronization, and deadlock
 
 import threading
 import time
 
-# ---------- Global shared data ----------
 log_messages = []
 
 def log(msg):
     print(msg)
     log_messages.append(msg)
 
-# ---------- Race Condition Scenario ----------
 
 def race_worker(counter, iterations):
     for _ in range(iterations):
-        # critical section WITHOUT lock
         temp = counter["value"]
         temp += 1
         counter["value"] = temp
@@ -46,7 +42,7 @@ def run_race_condition(num_threads=5, iterations=100000):
 
 def sync_worker(counter, iterations, lock):
     for _ in range(iterations):
-        with lock:  # critical section WITH lock
+        with lock:  
             temp = counter["value"]
             temp += 1
             counter["value"] = temp
@@ -73,7 +69,6 @@ def run_synchronized(num_threads=5, iterations=100000):
     else:
         log("[SYNC] Something is wrong. Value mismatch even with lock!")
 
-# ---------- Deadlock Scenario ----------
 
 def deadlock_worker_1(lock_a, lock_b):
     thread_name = threading.current_thread().name
@@ -113,7 +108,6 @@ def run_deadlock_demo(timeout=5):
     else:
         log("[DEADLOCK] No deadlock occurred (locks were acquired successfully).")
 
-# ---------- Simple Menu UI ----------
 
 def save_report(filename="report.txt"):
     with open(filename, "w") as f:
@@ -144,4 +138,5 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
+
 
