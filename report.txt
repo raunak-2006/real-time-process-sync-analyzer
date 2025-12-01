@@ -1,13 +1,10 @@
-[RACE] Expected = 500000, Actual = 500000
-[RACE] No race detected (this is rare but possible).
-[RACE] Expected = 500000, Actual = 500000
-[RACE] No race detected (this is rare but possible).
-[SYNC] Expected = 500000, Actual = 500000
-[SYNC] Synchronization successful. No race condition.
-[T1] Trying to acquire Lock A
-[T1] Acquired Lock A
-[T2] Trying to acquire Lock B
-[T2] Acquired Lock B
-[T1] Trying to acquire Lock B
-[T2] Trying to acquire Lock A
-[DEADLOCK] Deadlock detected: threads are still waiting for each other.
+Race Condition:
+Expected: 500000
+Actual: varies (because of race)
+
+Synchronized:
+Expected: 500000
+Actual: 500000
+
+Deadlock:
+Deadlock detected when both threads wait.
