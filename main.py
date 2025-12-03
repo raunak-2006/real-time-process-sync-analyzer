@@ -37,7 +37,6 @@ def run_race_condition(num_threads=5, iterations=100000):
     else:
         log("[RACE] No race detected (this is rare but possible).")
 
-# ---------- Synchronized Scenario ----------
 
 def sync_worker(counter, iterations, lock):
     for _ in range(iterations):
@@ -137,6 +136,7 @@ def main_menu():
 
 if __name__ == "__main__":
     main_menu()
+
 
 
 
